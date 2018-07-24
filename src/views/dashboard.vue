@@ -4,6 +4,9 @@
 		<h1>
 			{{title}}
 		</h1>
+		<div>
+			<Page :current="1" :total="100"></Page>
+		</div>
 	</div>
 </template>
 
