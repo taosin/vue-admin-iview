@@ -1,8 +1,9 @@
 # vue-admin-iview
 
-> A Vue.js project
+> 基于 Vue.js 2.x + iView 搭建 的后台管理系统
 
-## Build Setup
+
+## 常用命令
 
 ``` bash
 # install dependencies
@@ -18,4 +19,3 @@ npm run build
 npm run build --report
 ```
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
