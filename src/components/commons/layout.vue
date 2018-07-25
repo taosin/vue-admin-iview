@@ -1,8 +1,11 @@
 <template>
 	<div class="layout">
-		<div slot="left">
-			滴撒奥所大多
-		</div>
+		<slot name="top">
+		</slot>
+		<slot name="left">
+		</slot>
+		<slot name="main">
+		</slot>
 	</div>
 </template>
 <script>

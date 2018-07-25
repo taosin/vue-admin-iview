@@ -4,13 +4,10 @@
 		<h1>
 			{{title}}
 		</h1>
-		<div>
-			<Page :current="1" :total="100"></Page>
-		</div>
 		<layout>
-			<slot name="left">
+			<div slot="left">
 				大大大
-			</slot>
+			</div>
 		</layout>
 	</div>
 </template>
