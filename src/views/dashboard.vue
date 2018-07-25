@@ -1,8 +1,12 @@
 <template>
 	<div>
 		<p>首页</p>
+		ddadasdaddadadddadasdsdsadada
+		<h2>
+			dadasdadsaadsadshaha
+		</h2>
 		<h1>
-			{{title}}
+			发红发少室山佛奥或发哦饭后好圣佛山
 		</h1>
 	</div>
 </template>
