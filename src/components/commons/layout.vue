@@ -69,6 +69,7 @@ export default{
 			top:0;
 			bottom: 0;
 			transition: .5s;
+			background:#eee;
 		}
 	}
 }

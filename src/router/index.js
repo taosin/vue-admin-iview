@@ -8,8 +8,12 @@ export default new Router({
 		path: '/',
 		redirect: '/index'
 	}, {
+		path: '/login',
+		component: resolve => require(['@/views/login.vue'], resolve),
+		meta: { title: '登录' },
+	}, {
 		path: '/index',
-		component: resolve => require(['../index.vue'], resolve),
+		component: resolve => require(['@/index.vue'], resolve),
 		meta: { title: '首页' },
 		children: [
 		{
@@ -17,7 +21,7 @@ export default new Router({
 			redirect: '/dashboard'
 		}, {
 			path: '/dashboard',
-			component: resolve => require(['../views/dashboard.vue'], resolve),
+			component: resolve => require(['@/views/dashboard.vue'], resolve),
 			meta: { title: '首页' }
 		}
 		]
