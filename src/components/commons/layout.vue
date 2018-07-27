@@ -70,6 +70,7 @@ export default{
 			bottom: 0;
 			transition: .5s;
 			background:#eee;
+			overflow:auto;
 		}
 	}
 }

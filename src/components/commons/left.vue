@@ -1,13 +1,14 @@
 <template>
 	<div class="layout">
-		<Menu theme="dark" width="auto">
+		<Menu theme="dark" width="auto" name="1">
 			<template v-for="(m, index) in menus">
 				<MenuItem :name="m.url" :key="index" v-if="!m.children">
+					<Icon :type="m.icon" :key="index"></Icon>
 					{{m.title}}
 				</MenuItem>
 				<Submenu :name="m.url" v-if="m.children && m.children.length > 1" :key="index">
 					<template slot="title">
-						<Icon :type="m.icon"></Icon>
+						<Icon :type="m.icon" :key="index"></Icon>
 						{{m.title}}
 					</template>
 					<template v-for="(ch,i) in m.children">
@@ -30,6 +31,13 @@ export default{
 			{ title: '系统首页', url: '1', icon: 'document-text' },
 			{ title: '表格', url: '5', icon: 'document-text' },
 			{ title: '权限', url: '6', icon: 'document-text' },
+			{ title: '图表',
+			url: '10',
+			icon: 'stats-bars',
+			children: [
+			{ title: '折线图', url: '2', icon: 'document-text' },
+			{ title: '饼图', url: '2', icon: 'document-text' }
+			] },
 			{ title: '表单相关',
 			url: '7',
 			icon: 'share',

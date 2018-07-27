@@ -2,14 +2,18 @@
 * @Author: iMocco
 * @Date:   2018-07-27 17:59:36
 * @Last Modified by:   iMocco
-* @Last Modified time: 2018-07-27 18:09:12
+* @Last Modified time: 2018-07-27 18:25:45
 */
 .index{
 	.tags{
 		padding: 10px;
 		background: #fff;
+		position: fixed;
+		width: 100%;
 	}
 	.view{
 		padding: 10px;
+		overflow: auto;
+		padding-top: 50px;
 	}
 }
