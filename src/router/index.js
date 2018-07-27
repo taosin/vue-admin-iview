@@ -10,7 +10,7 @@ export default new Router({
 	}, {
 		path: '/login',
 		component: resolve => require(['@/views/login.vue'], resolve),
-		meta: { title: '登录' },
+		meta: { title: '登录' }
 	}, {
 		path: '/index',
 		component: resolve => require(['@/index.vue'], resolve),
