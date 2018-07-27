@@ -5,7 +5,7 @@
 				<top></top>
 			</div>
 			<div slot="left">
-				<left></left>
+				<side-menu></side-menu>
 			</div>
 			<div slot="main">
 				<router-view/>
@@ -16,11 +16,11 @@
 <script>
 import layout from './components/commons/layout.vue'
 import top from './components/commons/top.vue'
-import left from './components/commons/left.vue'
+import sideMenu from './components/commons/left.vue'
 export default {
 	name: 'dashboard',
 	components: {
-		layout, left, top
+		layout, sideMenu, top
 	},
 	data () {
 		return {

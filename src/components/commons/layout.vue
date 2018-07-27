@@ -30,7 +30,7 @@ export default{
 
 		// 控制导航菜单的展开和收缩
 		setHide () {
-			this.hide = !this.hide
+			// this.hide = !this.hide
 		}
 	}
 }
@@ -60,6 +60,7 @@ export default{
 			position: absolute;
 			height: 100%;
 			transition: .5s;
+			background:#404655;
 		}
 		.right{
 			left: 200px;
