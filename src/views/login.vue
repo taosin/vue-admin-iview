@@ -7,7 +7,7 @@
 					<Icon type="ios-person" slot="prepend"></Icon></Input>
 				</FormItem>
 				<FormItem prop="password">
-					<Input type="text" v-model="formLogin.username" placeholder="密码">
+					<Input type="password" v-model="formLogin.password" placeholder="密码">
 					<Icon type="key" slot="prepend"></Icon></Input>
 				</FormItem>
 				<FormItem>
@@ -30,20 +30,26 @@ export default {
 				username: '',
 				password: ''
 			},
-			ruleInline: {
+			ruleLogin: {
 				username: [
-				{ required: true, message: 'Please fill in the user name', trigger: 'blur' }
+				{ required: true, message: '请输入用户名', trigger: 'blur' }
 				],
 				password: [
-				{ required: true, message: 'Please fill in the password.', trigger: 'blur' },
-				{ type: 'string', min: 6, message: 'The password length cannot be less than 6 bits', trigger: 'blur' }
+				{ required: true, message: '请输入密码', trigger: 'blur' },
+				{ type: 'string', min: 6, message: '密码长度不能少于6位', trigger: 'blur' }
 				]
 			}
 		}
 	},
 	methods: {
-		handleSubmit (ref) {
-			console.log(ref)
+		handleSubmit (refName) {
+			this.$refs[refName].validate(valid => {
+				if (valid) {
+					this.$router.push('/')
+				} else {
+					console.log('failed')
+				}
+			})
 		}
 	}
 }
