@@ -1,6 +1,6 @@
 <template>
 	<div class="layout">
-		<Menu theme="dark" width="auto" name="1">
+		<Menu theme="dark" width="auto" name="1" :active-name="active">
 			<template v-for="(m, index) in menus">
 				<MenuItem :name="m.url" :key="index" v-if="!m.children">
 					<Icon :type="m.icon" :key="index"></Icon>
@@ -24,29 +24,11 @@
 <script>
 export default{
 	name: 'left',
+	props: [ 'menus' ],
 	data () {
 		return {
 			theme3: 'dark',
-			menus: [
-			{ title: '系统首页', url: '1', icon: 'document-text' },
-			{ title: '表格', url: '5', icon: 'document-text' },
-			{ title: '权限', url: '6', icon: 'document-text' },
-			{ title: '图表',
-			url: '10',
-			icon: 'stats-bars',
-			children: [
-			{ title: '折线图', url: '2', icon: 'document-text' },
-			{ title: '饼图', url: '2', icon: 'document-text' }
-			] },
-			{ title: '表单相关',
-			url: '7',
-			icon: 'share',
-			children: [
-			{ title: '富文本编辑器', url: '2', icon: 'document-text' },
-			{ title: 'markdown', url: '3', icon: 'document-text' },
-			{ title: '文件上传', url: '4', icon: 'document-text' }
-			] }
-			]
+			active: '/'
 		}
 	}
 }

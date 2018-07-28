@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<template v-for="(n,index) in 5">
-			<Tag closable color="blue" :key="index">标签一</Tag>
+			<Tag closable color="blue" :key="index">标签{{index}}</Tag>
 		</template>
 	</div>
 </template>
