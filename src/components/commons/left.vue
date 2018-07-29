@@ -1,6 +1,6 @@
 <template>
 	<div class="layout">
-		<Menu theme="dark" width="auto" name="1" :active-name="active">
+		<Menu theme="dark" width="auto" name="1" :active-name="active" :class="menuitemClasses">
 			<template v-for="(m, index) in menus">
 				<MenuItem :name="m.url" :key="index" v-if="!m.children">
 					<Icon :type="m.icon" :key="index"></Icon>
