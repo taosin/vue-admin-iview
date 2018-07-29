@@ -1,20 +1,20 @@
 .dashboard{
 	padding: 30px 10px;
+	.box{
+		cursor: pointer;
+		font-size: 12px;
+		position: relative;
+		overflow: hidden;
+		color: #666;
+		background: #fff;
+		-webkit-box-shadow: 4px 4px 40px rgba(0, 0, 0, 0.09);
+		box-shadow: 4px 4px 40px rgba(0, 0, 0, 0.09);
+		border-color: rgba(0, 0, 0, 0.05);
+		display: flex;
+	}
 	.today-counts{
 		width: 100%;
 		height: 108px;
-		.box{
-			cursor: pointer;
-			font-size: 12px;
-			position: relative;
-			overflow: hidden;
-			color: #666;
-			background: #fff;
-			-webkit-box-shadow: 4px 4px 40px rgba(0, 0, 0, 0.05);
-			box-shadow: 4px 4px 40px rgba(0, 0, 0, 0.05);
-			border-color: rgba(0, 0, 0, 0.05);
-			display: flex;
-		}
 		.left{
 			width: 40%;
 			-webkit-transition: all 0.38s ease-out;
@@ -84,6 +84,30 @@
 				font-size: 15px;
 				margin-left: 0;
 			}
+		}
+	}
+	.middle-content{
+		margin: 40px 0;
+		.user{
+			flex-direction: column;
+			.user-info{
+				padding: 25px 30px;
+				display: flex;
+				justify-content: space-between;
+				border-bottom: 1px solid #ddd;
+				.avator{
+					border-radius: 50%;
+				}
+				.user-name{
+					width: 70%;
+					margin-left: 20px;
+					padding-top: 25px;
+				}
+			}
+		}
+		.login-log{
+			padding: 30px;
+			font-weight: bold;
 		}
 	}
 }
