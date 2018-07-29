@@ -1,6 +1,5 @@
 <template>
 	<div class="dashboard">
-		的前端群
 	</div>
 </template>
 

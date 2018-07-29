@@ -1,34 +1,34 @@
 <template>
 	<div class="index">
 		<Layout :style="{height: '100%'}">
-            <Header>
-                <Menu mode="horizontal" theme="dark" active-name="1">
-                    <div class="layout-logo">
-                    </div>
-                    <div class="layout-nav">
-                        <top></top>
-                    </div>
-                </Menu>
-            </Header>
-            <Layout>
-                <Sider hide-trigger :style="{background: '#4a505e'}">
-                    <side-menu :menus="menus"></side-menu>
-                </Sider>
-                <Layout :style="{padding: '0 24px 24px'}">
-                    <Breadcrumb :style="{margin: '24px 0'}">
-                        <BreadcrumbItem>首页</BreadcrumbItem>
-                        <BreadcrumbItem>Components</BreadcrumbItem>
-                    </Breadcrumb>
-                    <Content :style="{padding: '24px', minHeight: '280px', background: '#fff'}">
-                         <router-view/>
-                    </Content>
-                </Layout>
-            </Layout>
-        </Layout>
+			<Header>
+				<Menu mode="horizontal" theme="dark" active-name="1">
+					<div class="layout-logo">
+					</div>
+					<div class="layout-nav">
+						<top></top>
+					</div>
+				</Menu>
+			</Header>
+			<Layout>
+				<Sider hide-trigger :style="{background: '#4a505e'}">
+					<side-menu :menus="menus"></side-menu>
+				</Sider>
+				<Layout :style="{padding: '0 14px 24px'}">
+					<Breadcrumb :style="{margin: '14px 0'}">
+						<template v-for="(bread, index) in breads">
+							<BreadcrumbItem :key="index">{{bread.name}}</BreadcrumbItem>
+						</template>
+					</Breadcrumb>
+					<Content :style="{padding: '10px', minHeight: '280px', background: '#fff', height:'100%', overflow: 'auto'}">
+						<router-view/>
+					</Content>
+				</Layout>
+			</Layout>
+		</Layout>
 	</div>
 </template>
 <script>
-// import layout from './components/commons/layout.vue'
 import top from './components/commons/top.vue'
 import sideMenu from './components/commons/left.vue'
 import iTag from './components/commons/tag.vue'
@@ -63,7 +63,11 @@ export default {
 			] }
 			],
 			isCollapsed: false,
-			active: '/'
+			active: '/',
+			breads: [
+			{ name: '首页' },
+			{ name: 'Dashboard' }
+			]
 		}
 	},
 	computed: {
