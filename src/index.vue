@@ -71,23 +71,8 @@ export default {
 		}
 	},
 	computed: {
-		rotateIcon () {
-			return [
-			'menu-icon',
-			this.isCollapsed ? 'rotate-icon' : ''
-			]
-		},
-		menuitemClasses () {
-			return [
-			'menu-item',
-			this.isCollapsed ? 'collapsed-menu' : ''
-			]
-		}
 	},
 	methods: {
-		collapsedSider () {
-			this.$refs.side1.toggleCollapse()
-		}
 	}
 }
 </script>
