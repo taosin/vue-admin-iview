@@ -1,3 +1,77 @@
 .dashboard{
-	
+	padding: 30px 10px;
+	.today-counts{
+		height: 100px;
+		width: 100%;
+		.count-box{
+			height: 108px;
+			cursor: pointer;
+			font-size: 12px;
+			position: relative;
+			overflow: hidden;
+			color: #666;
+			background: #fff;
+			-webkit-box-shadow: 4px 4px 40px rgba(0, 0, 0, 0.05);
+			box-shadow: 4px 4px 40px rgba(0, 0, 0, 0.05);
+			border-color: rgba(0, 0, 0, 0.05);
+			display: flex;
+			.left{
+				width: 40%;
+				-webkit-transition: all 0.38s ease-out;
+				transition: all 0.38s ease-out;
+				border-radius: 6px;
+				text-align: center;
+				padding: 22px 0;
+			}
+			.eye:hover{
+				background: #40c9c6;
+			}
+			.message:hover{
+				background: #36a3f7;
+			}
+			.order:hover{
+				background: #34bfa3;
+			}
+			.cash:hover{
+				background: #f4516c;
+			}
+			.right{
+				width: 60%;
+				display: flex;
+				flex-direction: column;
+				font-weight: bold;
+				margin: 26px;
+				margin-left: 0px;
+				text-align: right;
+				h2{
+					font-size: 30px;
+					margin-left: 0;
+				}
+				p{
+					font-size: 15px;
+					margin-left: 0;
+				}
+			}
+			.eye-text{
+				h2{
+					color: #40c9c6;
+				}
+			}
+			.message-text{
+				h2{
+					color: #36a3f7;
+				}
+			}
+			.order-text{
+				h2{
+					color: #34bfa3;
+				}
+			}
+			.cash-text{
+				h2{
+					color: #f4516c;
+				}
+			}
+		}
+	}
 }
