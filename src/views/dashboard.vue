@@ -53,7 +53,7 @@
 
 		<div class="middle-content">
 			<Row :gutter="30">
-				<Col span="12">
+				<Col span="6">
 					<div class="box user">
 						<div class="user-info">
 							<img src="http://blog.gdfengshuo.com/example/work/static/img/img.jpg" class="avator" />
