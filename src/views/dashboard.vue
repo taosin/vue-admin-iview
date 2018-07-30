@@ -93,17 +93,17 @@
 			</div>
 		</div>
 	</Col>
+	<Col span="6">
+		<div class="box todolist">
+			待办事项
+		</div>
+	</Col>
 	<Col span="12">
 		<div class="box">
 			<Table :columns="columns" :data="datas" style="width:100%;border:none"></Table>
 		</div>
 	</Col>
 
-	<Col span="6">
-		<div class="box">
-			待办事项
-		</div>
-	</Col>
 </Row>
 </div>
 </div>
@@ -127,6 +127,7 @@ export default {
 			{
 				title: '金额',
 				key: 'age',
+				align: 'center',
 				render: (h, params) => {
 					return h('div', [
 						h('Icon', {
@@ -141,11 +142,12 @@ export default {
 			{
 				title: '状态',
 				key: 'status',
+				align: 'center',
 				render: (h, params) => {
 					return h('div', [
 						h('Tag', {
 							props: {
-								color: params.row.status ? 'green' : 'blue'
+								color: params.row.status ? 'green' : 'red'
 							}
 						}, params.row.status ? '已完成' : '待付款')
 					])
@@ -181,7 +183,7 @@ export default {
 			{
 				name: '1532941050304',
 				age: 24,
-				status: 1
+				status: 0
 			},
 			{
 				name: '1532941050304',
