@@ -5,7 +5,7 @@
 				<h1>待办事项</h1>
 				<input class="new-todo"
 				autofocus autocomplete="off"
-				placeholder="请输入。。。"
+				placeholder="请输入待办内容..."
 				v-model="newTodo"
 				@keyup.enter="addTodo">
 			</header>
@@ -16,7 +16,7 @@
 					class="todo"
 					:key="todo.id"
 					:class="{ completed: todo.completed, editing: todo == editedTodo }">
-					<div class="view">
+					<div class="views">
 						<input class="toggle" type="checkbox" v-model="todo.completed">
 						<label @dblclick="editTodo(todo)">{{ todo.title }}</label>
 						<button class="destroy" @click="removeTodo(todo)"></button>
@@ -35,9 +35,9 @@
 				<strong>{{ remaining }}</strong> {{ remaining | pluralize }} left
 			</span>
 			<ul class="filters">
-				<li><a href="#/all" :class="{ selected: visibility == 'all' }">All</a></li>
-				<li><a href="#/active" :class="{ selected: visibility == 'active' }">Active</a></li>
-				<li><a href="#/completed" :class="{ selected: visibility == 'completed' }">Completed</a></li>
+				<li><a @click="visibility = 'all'" :class="{ selected: visibility == 'all' }">All</a></li>
+				<li><a @click="visibility = 'active'" :class="{ selected: visibility == 'active' }">Active</a></li>
+				<li><a @click="visibility = 'completed'" :class="{ selected: visibility == 'completed' }">Completed</a></li>
 			</ul>
 			<button class="clear-completed" @click="removeCompleted" v-show="todos.length > remaining">
 				Clear completed
@@ -176,19 +176,19 @@ export default{
 .todoapp input::-webkit-input-placeholder {
 	font-style: italic;
 	font-weight: 300;
-	color: #e6e6e6;
+	color: #333;
 }
 
 .todoapp input::-moz-placeholder {
 	font-style: italic;
 	font-weight: 300;
-	color: #e6e6e6;
+	color: #333;
 }
 
 .todoapp input::input-placeholder {
 	font-style: italic;
 	font-weight: 300;
-	color: #e6e6e6;
+	color: #333;
 }
 
 .todoapp h1 {
@@ -221,7 +221,7 @@ export default{
 }
 
 .new-todo {
-	padding: 16px 16px 16px 30px;
+	padding: 16px 16px 16px 60px;
 	border: none;
 	background: rgba(0, 0, 0, 0.003);
 	box-shadow: inset 0 -2px 1px rgba(0,0,0,0.03);
@@ -239,7 +239,7 @@ label[for='toggle-all'] {
 
 .toggle-all {
 	position: absolute;
-	top: -55px;
+	top: -48px;
 	left: -12px;
 	width: 60px;
 	height: 34px;
@@ -266,7 +266,7 @@ label[for='toggle-all'] {
 
 .todo-list li {
 	position: relative;
-	font-size: 24px;
+	font-size: 16px;
 	border-bottom: 1px solid #ededed;
 }
 
@@ -286,7 +286,7 @@ label[for='toggle-all'] {
 	margin: 0 0 0 43px;
 }
 
-.todo-list li.editing .view {
+.todo-list li.editing .views {
 	display: none;
 }
 
@@ -339,6 +339,8 @@ label[for='toggle-all'] {
 	color: #cc9a9a;
 	margin-bottom: 11px;
 	transition: color 0.2s ease-out;
+	border: none;
+    background: none;
 }
 
 .todo-list li .destroy:hover {
@@ -364,7 +366,7 @@ label[for='toggle-all'] {
 .footer {
 	color: #777;
 	padding: 10px 15px;
-	height: 20px;
+	height: 40px;
 	text-align: center;
 	border-top: 1px solid #e6e6e6;
 }
@@ -374,8 +376,8 @@ label[for='toggle-all'] {
 	position: absolute;
 	right: 0;
 	bottom: 0;
-	left: 0;
-	height: 50px;
+	left: 10px;
+	height: /*3*/0px;
 	overflow: hidden;
 	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2),
 	0 8px 0 -3px #f6f6f6,
@@ -424,12 +426,14 @@ label[for='toggle-all'] {
 }
 
 .clear-completed,
-html .clear-completed:active {
+.clear-completed:active {
 	float: right;
 	position: relative;
 	line-height: 20px;
 	text-decoration: none;
 	cursor: pointer;
+	border: none;
+	background: none;
 }
 
 .clear-completed:hover {
