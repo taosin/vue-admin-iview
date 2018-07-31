@@ -94,15 +94,15 @@
 		</div>
 	</Col>
 	<Col span="6">
-		<div class="box todolist">
-			待办事项
-		</div>
-	</Col>
-	<Col span="12">
-		<div class="box">
-			<Table :columns="columns" :data="datas" style="width:100%;border:none"></Table>
-		</div>
-	</Col>
+	<div class="box todolist">
+		<todo></todo>
+	</div>
+</Col>
+<Col span="12">
+<div class="box">
+	<Table :columns="columns" :data="datas" style="width:100%;border:none"></Table>
+</div>
+</Col>
 
 </Row>
 </div>
@@ -111,10 +111,11 @@
 
 <script>
 import './dashboard.scss'
-
+import todo from './components/todolist/index.vue'
 export default {
 	name: 'dashboard',
 	components: {
+		todo
 	},
 	data () {
 		return {
@@ -150,7 +151,7 @@ export default {
 								color: params.row.status ? 'green' : 'red'
 							}
 						}, params.row.status ? '已完成' : '待付款')
-					])
+						])
 				}
 			}
 			],
@@ -197,6 +198,13 @@ export default {
 			}
 			]
 		}
+	},
+	mounted () {
+		this.$Notice.error({
+			title: '标题标题',
+			desc: 'Here is the notification description. Here is the notification description. ',
+			duration: 0
+		})
 	}
 }
 </script>
