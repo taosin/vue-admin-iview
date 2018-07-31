@@ -73,25 +73,6 @@
 				</div>
 			</div>
 		</div>
-		<div class="box user">
-			<div class="user-info">
-				<img src="http://blog.gdfengshuo.com/example/work/static/img/img.jpg" class="avator" />
-				<div class="user-name">
-					<h1>Admin</h1>
-					<h3>超级管理员</h3>
-				</div>
-			</div>
-			<div class="login-log">
-				<div>
-					<span>上次登录时间：</span>
-					<span>2010-12-12 12:12:12</span>
-				</div>
-				<div>
-					<span>上次登录地点：</span>
-					<span>上海</span>
-				</div>
-			</div>
-		</div>
 	</Col>
 	<Col span="6">
 	<div class="box todolist">
@@ -200,11 +181,11 @@ export default {
 		}
 	},
 	mounted () {
-		this.$Notice.error({
-			title: '标题标题',
-			desc: 'Here is the notification description. Here is the notification description. ',
-			duration: 0
-		})
+		// this.$Notice.error({
+		// 	title: '标题标题',
+		// 	desc: 'Here is the notification description. Here is the notification description. ',
+		// 	duration: 0
+		// })
 	}
 }
 </script>
