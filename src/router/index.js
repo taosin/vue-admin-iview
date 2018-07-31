@@ -21,7 +21,7 @@ export default new Router({
 			redirect: '/dashboard'
 		}, {
 			path: '/dashboard',
-			component: resolve => require(['@/views/dashboard.vue'], resolve),
+			component: resolve => require(['@/views/dashboard/index.vue'], resolve),
 			meta: { title: '首页' }
 		}
 		]

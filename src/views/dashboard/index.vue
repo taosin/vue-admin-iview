@@ -110,7 +110,7 @@
 </template>
 
 <script>
-import './../../static/css/dashboard.scss'
+import './dashboard.scss'
 
 export default {
 	name: 'dashboard',
