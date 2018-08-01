@@ -20,7 +20,7 @@
 					</Breadcrumb>
 					<Content :style="{padding: '10px', minHeight: '280px', background: '#fff', height:'100%', overflow: 'auto'}">
 						<transition name="slide-fade">
-							<router-view></router-view>
+							<router-view/>
 						</transition>
 					</Content>
 				</Layout>

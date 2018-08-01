@@ -25,7 +25,18 @@ export default{
 			currentTab: 'unread',
 			columns: [
 			{
-				key: 'title'
+				key: 'title',
+				render: (h, params) => {
+					return h('div', [
+						h('a', {
+							style: {
+								color: '#333',
+								textDecoration: 'underline',
+								textUnderlinePosition: 'under'
+							}
+						}, params.row.title)
+						])
+				}
 			},
 			{
 				key: 'date',
