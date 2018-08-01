@@ -2,7 +2,7 @@
 * @Author: iMocco
 * @Date:   2018-07-27 17:59:36
 * @Last Modified by:   iMocco
-* @Last Modified time: 2018-07-29 21:08:35
+* @Last Modified time: 2018-08-01 18:37:24
 */
 .index{
 	.tags{
@@ -16,6 +16,15 @@
 		overflow: auto;
 		padding-top: 50px;
 	}
+	.slide-fade-enter-active {
+		transition: opacity .8s ease;
+	}
+	.slide-fade-leave-active {
+		// transition: opacity 1s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+	}
+	.slide-fade-enter, .slide-fade-leave-to{
+		opacity: 0;
+	}
 }
 .index{
 	border: 1px solid #d7dde4;
@@ -26,17 +35,17 @@
 	height: 100%;
 }
 .layout-logo{
-    width: 100px;
-    height: 30px;
-    background: #5b6270;
-    border-radius: 3px;
-    float: left;
-    position: relative;
-    top: 15px;
-    left: 20px;
+	width: 100px;
+	height: 30px;
+	background: #5b6270;
+	border-radius: 3px;
+	float: left;
+	position: relative;
+	top: 15px;
+	left: 20px;
 }
 .layout-nav{
-    width: 180px;
-    margin: 0 auto;
-    float: right;
+	width: 180px;
+	margin: 0 auto;
+	float: right;
 }
