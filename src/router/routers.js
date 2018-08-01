@@ -2,7 +2,7 @@
 * @Author: iMocco
 * @Date:   2018-08-01 11:12:14
 * @Last Modified by:   iMocco
-* @Last Modified time: 2018-08-01 14:43:11
+* @Last Modified time: 2018-08-01 15:01:32
 */
 
 const routes = [
@@ -31,6 +31,10 @@ const routes = [
 		meta: { title: 'Tabs' }
 	}
 	]
+}, {
+	path: '/*',
+	component: resolve => require(['@/views/404.vue'], resolve),
+	meta: { title: '404' }
 }
 ]
 export default routes
