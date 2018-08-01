@@ -2,17 +2,15 @@
 	<div class="index">
 		<Layout :style="{height: '100%'}">
 			<Header>
-				<Menu mode="horizontal" theme="dark" active-name="1">
-					<div class="layout-logo">
-					</div>
-					<div class="layout-nav">
-						<top></top>
-					</div>
-				</Menu>
+				<div class="layout-logo">
+				</div>
+				<div class="layout-nav">
+					<top></top>
+				</div>
 			</Header>
 			<Layout>
 				<Sider hide-trigger :style="{background: '#4a505e'}">
-					<side-menu :menus="menus"></side-menu>
+					<side-menu :menus="menus"  @on-select="handleSelect" :active-name="active"></side-menu>
 				</Sider>
 				<Layout :style="{padding: '0 14px 24px'}">
 					<Breadcrumb :style="{margin: '14px 0'}">
@@ -44,7 +42,7 @@ export default {
 			title: '欢迎回来',
 			menus: [
 			{ title: '系统首页', url: '/', icon: 'document-text' },
-			{ title: '表格', url: '5', icon: 'document-text' },
+			{ title: 'Tabs', url: '/tabs', icon: 'document-text' },
 			{ title: '权限', url: '6', icon: 'document-text' },
 			{ title: '图表',
 			url: '10',
@@ -70,9 +68,23 @@ export default {
 			]
 		}
 	},
+	watch: {
+		'$route' (to, from) {
+		}
+	},
 	computed: {
 	},
+	mounted () {
+		this.active = this.$route.path
+	},
 	methods: {
+		handleSelect (name) {
+			this.gotoPage(name)
+		},
+
+		gotoPage (path) {
+			this.$router.push(path)
+		}
 	}
 }
 </script>

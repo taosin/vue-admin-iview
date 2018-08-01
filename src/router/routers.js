@@ -2,7 +2,7 @@
 * @Author: iMocco
 * @Date:   2018-08-01 11:12:14
 * @Last Modified by:   iMocco
-* @Last Modified time: 2018-08-01 11:22:38
+* @Last Modified time: 2018-08-01 14:43:11
 */
 
 const routes = [
@@ -25,6 +25,10 @@ const routes = [
 		path: '/dashboard',
 		component: resolve => require(['@/views/dashboard/index.vue'], resolve),
 		meta: { title: '首页' }
+	}, {
+		path: '/tabs',
+		component: resolve => require(['@/views/tabs/index.vue'], resolve),
+		meta: { title: 'Tabs' }
 	}
 	]
 }
