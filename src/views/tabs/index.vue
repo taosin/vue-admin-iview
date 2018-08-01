@@ -1,9 +1,11 @@
 <template>
 	<div>
-		<Tabs :animated="true" v-model="currentTab">
+		<Tabs :animated="animated" v-model="currentTab">
 			<template v-for="tab in tabs" >
 				<TabPane :label="tab.title" :key="tab.val" :name="tab.val">
 					<Table :columns="columns" :data="filterDatas" :show-header="false"></Table>
+					<br>
+					<Button @click="handleAllCureentRecords" :type="transTab.btnType">{{transTab.btnText}}</Button>
 				</TabPane>
 			</template>
 		</Tabs>
@@ -38,18 +40,22 @@ export default{
 					let text = '标为已读'
 					let type = 'default'
 					let status = params.row.status
+					let afterStatus = ''
 					switch (status) {
 						case 'unread':
 						text = '标为已读'
-						type = 'default'
+						type = 'primary'
+						afterStatus = 'read'
 						break
 						case 'read':
 						text = '删除'
 						type = 'error'
+						afterStatus = 'trash'
 						break
 						case 'trash':
 						text = '还原'
-						type = 'primary'
+						type = 'default'
+						afterStatus = 'unread'
 						break
 					}
 					return h('div', [
@@ -60,7 +66,7 @@ export default{
 							},
 							on: {
 								click: () => {
-									this.changeStatus(params)
+									this.changeStatus(params, afterStatus)
 								}
 							}
 						}, text)
@@ -108,28 +114,43 @@ export default{
 		}
 	},
 	computed: {
-		filterDatas (val) {
+		filterDatas () {
 			const self = this
 			return self.datas.filter(data => {
 				return data.status === self.currentTab
 			})
+		},
+		transTab () {
+			return {
+				unread: { btnText: '全部标为已读', btnType: 'primary' },
+				read: { btnText: '全部删除', btnType: 'error' },
+				trash: { btnText: '全部还原', btnType: 'default' }
+			}[this.currentTab]
 		}
 	},
+	filters: {
+	},
 	methods: {
-		changeStatus (params) {
-			let status = params.row.status
+		changeStatus (params, afterStatus) {
 			let index = params.index
-			switch (status) {
+			this.filterDatas[index].status = afterStatus
+		},
+		handleAllCureentRecords () {
+			let afterStatus = ''
+			switch (this.currentTab) {
 				case 'unread':
-				this.filterDatas[index].status = 'read'
+				afterStatus = 'read'
 				break
 				case 'read':
-				this.filterDatas[index].status = 'trash'
+				afterStatus = 'trash'
 				break
 				case 'trash':
-				this.filterDatas[index].status = 'unread'
+				afterStatus = 'unread'
 				break
 			}
+			return this.filterDatas.forEach(data => {
+				data.status = afterStatus
+			})
 		}
 	}
 }
