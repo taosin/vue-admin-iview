@@ -1,30 +1,21 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import routes from './routers.js'
+import iView from 'iview'
 Vue.use(Router)
 
-export default new Router({
-	routes: [
-	{
-		path: '/',
-		redirect: '/index'
-	}, {
-		path: '/login',
-		component: resolve => require(['@/views/login.vue'], resolve),
-		meta: { title: '登录' }
-	}, {
-		path: '/index',
-		component: resolve => require(['@/index.vue'], resolve),
-		meta: { title: '首页' },
-		children: [
-		{
-			path: '/',
-			redirect: '/dashboard'
-		}, {
-			path: '/dashboard',
-			component: resolve => require(['@/views/dashboard/index.vue'], resolve),
-			meta: { title: '首页' }
-		}
-		]
-	}
-	]
+const routers = new Router({
+	routes,
+	mode: 'history'
 })
+
+routers.beforeEach((to, from, next) => {
+	iView.LoadingBar.start()
+	next()
+})
+
+routers.afterEach(to => {
+	iView.LoadingBar.finish()
+	window.scrollTo(0, 0)
+})
+export default routers
