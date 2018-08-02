@@ -2,7 +2,7 @@
 * @Author: iMocco
 * @Date:   2018-08-01 11:12:14
 * @Last Modified by:   iMocco
-* @Last Modified time: 2018-08-01 15:01:32
+* @Last Modified time: 2018-08-02 15:44:41
 */
 
 const routes = [
@@ -29,6 +29,10 @@ const routes = [
 		path: '/tabs',
 		component: resolve => require(['@/views/tabs/index.vue'], resolve),
 		meta: { title: 'Tabs' }
+	}, {
+		path: '/tables',
+		component: resolve => require(['@/views/tables/index.vue'], resolve),
+		meta: { title: 'Tables' }
 	}
 	]
 }, {

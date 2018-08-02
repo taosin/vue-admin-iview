@@ -45,7 +45,7 @@ export default {
 			menus: [
 			{ title: '系统首页', url: '/', icon: 'document-text' },
 			{ title: 'Tabs', url: '/tabs', icon: 'document-text' },
-			{ title: '权限', url: '6', icon: 'document-text' },
+			{ title: '表格', url: '/tables', icon: 'document-text' },
 			{ title: '图表',
 			url: '10',
 			icon: 'stats-bars',
