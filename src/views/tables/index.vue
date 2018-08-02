@@ -1,8 +1,24 @@
 <template>
 	<div>
-		<Table :columns="columns" :data="datas" editable searchable search-place="top"></Table>
+		<div style="margin: 10px">
+			显示边框 <i-switch v-model="showBorder" style="margin-right: 5px"></i-switch>
+			显示斑马纹 <i-switch v-model="showStripe" style="margin-right: 5px"></i-switch>
+			显示索引 <i-switch v-model="showIndex" style="margin-right: 5px"></i-switch>
+			显示多选框 <i-switch v-model="showCheckbox" style="margin-right: 5px"></i-switch>
+			显示表头 <i-switch v-model="showHeader" style="margin-right: 5px"></i-switch>
+			表格滚动 <i-switch v-model="fixedHeader" style="margin-right: 5px"></i-switch>
+			<br>
+			<br>
+			表格尺寸
+			<Radio-group v-model="tableSize" type="button">
+				<Radio label="large">大</Radio>
+				<Radio label="default">中</Radio>
+				<Radio label="small">小</Radio>
+			</Radio-group>
+		</div>
+		<Table :columns="tableColumns" :data="datas" ref="selection" :border="showBorder" :stripe="showStripe" :show-header="showHeader" :height="fixedHeader ? 250 : ''" :size="tableSize"></Table>
 		<br>
-		<Button @click="handleAllCureentRecords" :type="transTab.btnType">{{transTab.btnText}}</Button>
+		<Button @click="handleSelectAll">{{isSelectedAll?'取消全选':'设置全选'}}</Button>
 	</div>
 </template>
 <script>
@@ -10,107 +26,137 @@ export default{
 	name: 'tabs',
 	data () {
 		return {
-			animated: true,
-			tabs: [
-			{ title: '未读消息', val: 'unread' },
-			{ title: '已读消息', val: 'read' },
-			{ title: '回收站', val: 'trash' }
-			],
-			currentTab: 'unread',
-			columns: [
-			{
-				title: '姓名',
-				key: 'title',
-				sortable: true,
-				render: (h, params) => {
-					return h('div', [
-						h('a', {
-							style: {
-								color: '#333',
-								textDecoration: 'underline',
-								textUnderlinePosition: 'under'
-							}
-						}, params.row.title)
-						])
-				}
-			},
-			{	
-				title: '年龄',
-				key: 'age'
-			},
-			{	
-				title: '性别',
-				key: 'sex',
-				align: 'center'
-			},
-			{	
-				title: '操作',
-				key: 'status',
-				align: 'center',
-				render: (h, params) => {
-					return h('div', [
-						h('Button', {
-							props: {
-								size: 'small',
-								type: 'primary'
-							},
-							on: {
-								click: () => {
-									this.changeStatus(params)
-								}
-							}
-						}, '编辑')
-						])
-				}
-			}
-			],
 			datas: [
 			{
-				title: 'Tom',
-				age: 19,
-				sex: 1,
-				status: 1
+				name: 'John Brown',
+				age: 18,
+				address: 'New York No. 1 Lake Park',
+				date: '2016-10-03'
 			},
 			{
-				title: 'Angle',
-				age: 29,
-				sex: 0,
-				status: 1
+				name: 'Jim Green',
+				age: 24,
+				address: 'London No. 1 Lake Park',
+				date: '2016-10-01'
 			},
 			{
-				title: 'Sam',
-				age: 21,
-				sex: 0,
-				status: 1
+				name: 'Joe Black',
+				age: 30,
+				address: 'Sydney No. 1 Lake Park',
+				date: '2016-10-02'
 			},
 			{
-				title: 'Jimmiy',
-				age: 34,
-				sex: 1,
-				status: 1
+				name: 'Jon Snow',
+				age: 26,
+				address: 'Ottawa No. 2 Lake Park',
+				date: '2016-10-04'
 			},
 			{
-				title: 'Lisa',
-				age: 9,
-				sex: 0,
-				status: 1
+				name: 'John Brown',
+				age: 18,
+				address: 'New York No. 1 Lake Park',
+				date: '2016-10-03'
+			},
+			{
+				name: 'Jim Green',
+				age: 24,
+				address: 'London No. 1 Lake Park',
+				date: '2016-10-01'
+			},
+			{
+				name: 'Joe Black',
+				age: 30,
+				address: 'Sydney No. 1 Lake Park',
+				date: '2016-10-02'
+			},
+			{
+				name: 'Jon Snow',
+				age: 26,
+				address: 'Ottawa No. 2 Lake Park',
+				date: '2016-10-04'
 			}
-			]
+			],
+			isSelectedAll: false,
+			showBorder: false,
+			showStripe: false,
+			showHeader: true,
+			showIndex: true,
+			showCheckbox: false,
+			fixedHeader: false,
+			tableSize: 'default'
 		}
 	},
 	computed: {
-		filterDatas () {
-			const self = this
-			return self.datas.filter(data => {
-				return data.status === 1
+		tableColumns () {
+			let columns = []
+			if (this.showCheckbox) {
+				columns.push({
+					type: 'selection',
+					width: 60,
+					align: 'center'
+				})
+			}
+			if (this.showIndex) {
+				columns.push({
+					type: 'index',
+					width: 60,
+					align: 'center'
+				})
+			}
+			columns.push({
+				title: 'Date',
+				key: 'date',
+				sortable: true
 			})
-		},
-		transTab () {
-			return {
-				unread: { btnText: '全部标为已读', btnType: 'primary' },
-				read: { btnText: '全部删除', btnType: 'error' },
-				trash: { btnText: '全部还原', btnType: 'default' }
-			}[this.currentTab]
+			columns.push({
+				title: 'Name',
+				key: 'name'
+			})
+			columns.push({
+				title: 'Age',
+				key: 'age',
+				sortable: true,
+				filters: [
+				{
+					label: 'Greater than 25',
+					value: 1
+				},
+				{
+					label: 'Less than 25',
+					value: 2
+				}
+				],
+				filterMultiple: false,
+				filterMethod (value, row) {
+					if (value === 1) {
+						return row.age > 25
+					} else if (value === 2) {
+						return row.age < 25
+					}
+				}
+			})
+			columns.push({
+				title: 'Address',
+				key: 'address',
+				filters: [
+				{
+					label: 'New York',
+					value: 'New York'
+				},
+				{
+					label: 'London',
+					value: 'London'
+				},
+				{
+					label: 'Sydney',
+					value: 'Sydney'
+				}
+				],
+				filterMethod (value, row) {
+					return row.address.indexOf(value) > -1
+				}
+			})
+			return columns
 		}
 	},
 	filters: {
@@ -121,26 +167,9 @@ export default{
 		}
 	},
 	methods: {
-		changeStatus (params, afterStatus) {
-			let index = params.index
-			this.filterDatas[index].status = afterStatus
-		},
-		handleAllCureentRecords () {
-			let afterStatus = ''
-			switch (this.currentTab) {
-				case 'unread':
-				afterStatus = 'read'
-				break
-				case 'read':
-				afterStatus = 'trash'
-				break
-				case 'trash':
-				afterStatus = 'unread'
-				break
-			}
-			return this.filterDatas.forEach(data => {
-				data.status = afterStatus
-			})
+		handleSelectAll () {
+			this.isSelectedAll = !this.isSelectedAll
+			this.$refs.selection.selectAll(this.isSelectedAll)
 		}
 	}
 }
