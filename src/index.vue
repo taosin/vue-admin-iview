@@ -43,9 +43,10 @@ export default {
 		return {
 			title: '欢迎回来',
 			menus: [
-			{ title: '系统首页', url: '/', icon: 'document-text' },
-			{ title: 'Tabs', url: '/tabs', icon: 'document-text' },
-			{ title: '表格', url: '/tables', icon: 'document-text' },
+			{ title: '系统首页', url: '/', icon: 'ios-home' },
+			{ title: 'Tabs', url: '/tabs', icon: 'ios-pricetag' },
+			{ title: '表格', url: '/tables', icon: 'ios-list' },
+			{ title: '上传', url: '/upload', icon: 'upload' },
 			{ title: '图表',
 			url: '10',
 			icon: 'stats-bars',
