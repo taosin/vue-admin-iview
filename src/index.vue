@@ -47,6 +47,7 @@ export default {
 			{ title: 'Tabs', url: '/tabs', icon: 'ios-pricetag' },
 			{ title: '表格', url: '/tables', icon: 'ios-list' },
 			{ title: '上传', url: '/upload', icon: 'upload' },
+			{ title: '按钮', url: '/button', icon: 'social-youtube' },
 			{ title: '图表',
 			url: '10',
 			icon: 'stats-bars',
