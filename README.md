@@ -2,6 +2,13 @@
 
 > 基于 Vue.js 2.x + iView 搭建 的后台管理系统
 
+Demo
+---
+在线Demo：[vue-admin-iview](https://taosin.github.io/vue-admin-iview/)
+
+简介
+---
+[vue-admin-iview](https://taosin.github.io/vue-admin-iview/) 基于 `Vue.js 2.x` 和 `iView` 开发的一个后台管理系统。
 
 ## 常用命令
 
