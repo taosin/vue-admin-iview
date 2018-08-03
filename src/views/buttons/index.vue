@@ -9,7 +9,7 @@
 			类型：
 			<Radio-group v-model="btnType" type="button" >
 				<template v-for="btn in buttons">
-					<Radio :label="btn.type" :key="btn.type" @change="change" >{{btn.text}}</Radio>
+					<Radio :label="btn.type" :key="btn.type">{{btn.text}}</Radio>
 				</template>
 			</Radio-group>
 		</div>
