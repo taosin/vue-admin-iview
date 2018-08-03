@@ -28,7 +28,6 @@ export default{
 	},
 	methods: {
 		logout () {
-			debugger
 			this.$router.push('/login')
 		}
 	}
