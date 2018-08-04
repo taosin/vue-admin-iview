@@ -6,7 +6,7 @@
 					<Icon :type="m.icon" :key="index"></Icon>
 					{{m.title}}
 				</MenuItem>
-				<Submenu :name="m.url" v-if="m.children && m.children.length > 1" :key="index">
+				<Submenu v-if="m.children && m.children.length > 1" :key="index">
 					<template slot="title">
 						<Icon :type="m.icon" :key="index"></Icon>
 						{{m.title}}

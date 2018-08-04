@@ -53,10 +53,10 @@ export default {
 			url: '10',
 			icon: 'stats-bars',
 			children: [
-			{ title: '折线图', url: '2', icon: 'document-text' },
+			{ title: '折线图', url: '/charts', icon: 'document-text' },
 			{ title: '饼图', url: '2', icon: 'document-text' }
 			] },
-			{ title: '表单相关',
+			{ title: '组件',
 			url: '7',
 			icon: 'share',
 			children: [

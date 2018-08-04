@@ -2,7 +2,7 @@
 * @Author: iMocco
 * @Date:   2018-08-01 11:12:14
 * @Last Modified by:   iMocco
-* @Last Modified time: 2018-08-04 22:01:43
+* @Last Modified time: 2018-08-04 22:15:04
 */
 
 const routes = [
@@ -45,6 +45,10 @@ const routes = [
 		path: '/forms',
 		component: resolve => require(['@/views/form/index.vue'], resolve),
 		meta: { title: 'Forms' }
+	}, {
+		path: '/charts',
+		component: resolve => require(['@/views/charts/index.vue'], resolve),
+		meta: { title: 'Charts' }
 	}
 	]
 }, {
