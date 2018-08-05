@@ -2,7 +2,7 @@
 * @Author: iMocco
 * @Date:   2018-07-27 17:59:36
 * @Last Modified by:   iMocco
-* @Last Modified time: 2018-08-01 18:37:24
+* @Last Modified time: 2018-08-05 19:04:07
 */
 .index{
 	.tags{
@@ -24,6 +24,13 @@
 	}
 	.slide-fade-enter, .slide-fade-leave-to{
 		opacity: 0;
+	}
+	.magin-div{
+		margin: 10px 0;
+	}
+
+	.text-right{
+		text-align: right;
 	}
 }
 .index{

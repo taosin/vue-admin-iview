@@ -17,6 +17,9 @@
 			</Radio-group>
 		</div>
 		<Table :columns="tableColumns" :data="datas" ref="selection" :border="showBorder" :stripe="showStripe" :show-header="showHeader" :height="fixedHeader ? 250 : ''" :size="tableSize"></Table>
+		<div class="magin-div text-right">
+			<Page :total="datas.length" show-sizer show-total :page-size-opts="[5,10,20]" @on-change="changeCurrent" @on-page-size-change="changeSize"></Page>
+		</div>
 		<br>
 		<Button @click="handleSelectAll">{{isSelectedAll?'取消全选':'设置全选'}}</Button>
 	</div>
@@ -170,6 +173,12 @@ export default{
 		handleSelectAll () {
 			this.isSelectedAll = !this.isSelectedAll
 			this.$refs.selection.selectAll(this.isSelectedAll)
+		},
+		changeCurrent (e) {
+			console.log(e)
+		},
+		changeSize (e) {
+			console.log(e)
 		}
 	}
 }
