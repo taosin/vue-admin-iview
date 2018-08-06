@@ -44,6 +44,7 @@ export default {
 			title: '欢迎回来',
 			menus: [
 			{ title: '系统首页', url: '/', icon: 'ios-home' },
+			{ title: '色彩', url: '/colors', icon: 'ios-pricetag' },
 			{ title: 'Tabs', url: '/tabs', icon: 'ios-pricetag' },
 			{ title: '表格', url: '/tables', icon: 'ios-list' },
 			{ title: '上传', url: '/upload', icon: 'upload' },

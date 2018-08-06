@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<Row>
-			<Col span="8">
+			<Col span="12">
 			<Form ref="formValidate" :model="formValidate" :rules="ruleValidate" :label-width="80">
 				<FormItem label="Name" prop="name">
 					<Input v-model="formValidate.name" placeholder="Enter your name"></Input>

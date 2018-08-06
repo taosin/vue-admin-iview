@@ -1,7 +1,11 @@
 <template>
 	<div>
 		<Upload action="//jsonplaceholder.typicode.com/posts/" :multiple="multiple" :type="type">
-			<Button type="ghost" icon="ios-cloud-upload-outline">Upload files</Button>
+			<div style="padding: 20px 0" v-show="draggable">
+				<Icon type="ios-cloud-upload" size="52" style="color: #3399ff"></Icon>
+				<p>Click or drag files here to upload</p>
+			</div>
+			<Button type="ghost" icon="ios-cloud-upload-outline" v-show="!draggable">Upload files</Button>
 		</Upload>
 	</div>
 </template>
@@ -12,7 +16,7 @@ export default{
 			type: Boolean,
 			default: false
 		},
-		draggable:{
+		draggable: {
 			type: Boolean,
 			default: false
 		}
@@ -20,6 +24,11 @@ export default{
 	data () {
 		return {
 			type: this.draggable ? 'drag' : 'select'
+		}
+	},
+	watch: {
+		draggable (val) {
+			this.type = this.draggable ? 'drag' : 'select'
 		}
 	},
 	methods: {
