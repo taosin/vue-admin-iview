@@ -1,7 +1,8 @@
 <template>
 	<div>
 		<div>
-			示例：<Button :type="btnType" :icon="showIcon?'ios-search':''" :shape="shape?'circle':''" :size="size" :disabled="disabled" :loading="loading" :long="long">{{loading?'加载中':btnText}}</Button>
+			示例：<Button :type="btnType" :icon="showIcon?'ios-search':''" :size="size" :disabled="disabled" :loading="loading" :long="long" v-show="!shape">{{loading?'加载中':btnText}}</Button>
+			<Button :type="btnType" shape="circle" :icon="showIcon?'ios-search':''" :size="size" :disabled="disabled" :loading="loading" :long="long" v-show="shape">{{loading?'加载中':btnText}}</Button>
 			<Button :type="btnType" shape="circle" icon="ios-search" v-show="shape" :size="size" :disabled="disabled" :loading="loading"></Button>
 		</div>
 		<br />
