@@ -1,0 +1,32 @@
+/*
+* @Author: iMocco
+* @Date:   2018-08-06 15:22:57
+* @Last Modified by:   iMocco
+* @Last Modified time: 2018-08-06 16:09:10
+*/
+.color-card{
+	border-radius: 4px;
+	font-size: 14px;
+	position: relative;
+	transition: all .2s ease-in-out;
+	margin-bottom: 20px;
+	.card-body{
+		padding: 16px;
+		.color-name{
+			color: #fff;
+			font-size: 16px;
+		}
+		.color-desc{
+			color: #fff;
+			opacity: .7;
+		}
+	}
+}
+.color-title{
+	color: #333;
+	border-bottom: 1px solid;
+	padding-left: 20px;
+	padding-bottom: 10px;
+	margin-bottom: 10px;
+	font-size: 16px;
+}
