@@ -1,2 +1,0 @@
-webpackJsonp([3],{"1I3X":function(t,e,l){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var n={render:function(){var t=this.$createElement,e=this._self._c||t;return e("div",[e("Upload",{attrs:{action:"//jsonplaceholder.typicode.com/posts/",multiple:this.multiple}},[e("Button",{attrs:{type:"ghost",icon:"ios-cloud-upload-outline"}},[this._v("Upload files")])],1)],1)},staticRenderFns:[]},o=l("VU/8")({name:"upload",data:function(){return{multiple:!0}}},n,!1,null,null,null);e.default=o.exports}});
-//# sourceMappingURL=3.901df033f796e628388f.js.map
