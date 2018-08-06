@@ -18,15 +18,19 @@
 		</div>
 		<Table :columns="tableColumns" :data="datas" ref="selection" :border="showBorder" :stripe="showStripe" :show-header="showHeader" :height="fixedHeader ? 250 : ''" :size="tableSize"></Table>
 		<div class="magin-div text-right">
-			<Page :total="datas.length" show-sizer show-total :page-size-opts="[5,10,20]" @on-change="changeCurrent" @on-page-size-change="changeSize"></Page>
+			<pagination :total="datas.length" show-sizer show-total :page-size-opts="[5,10,20]" @change="changePage"></pagination>
 		</div>
 		<br>
 		<Button @click="handleSelectAll">{{isSelectedAll?'取消全选':'设置全选'}}</Button>
 	</div>
 </template>
 <script>
+import pagination from './../../components/commons/pagination'
 export default{
 	name: 'tabs',
+	components: {
+		pagination
+	},
 	data () {
 		return {
 			datas: [
@@ -174,10 +178,7 @@ export default{
 			this.isSelectedAll = !this.isSelectedAll
 			this.$refs.selection.selectAll(this.isSelectedAll)
 		},
-		changeCurrent (e) {
-			console.log(e)
-		},
-		changeSize (e) {
+		changePage (e) {
 			console.log(e)
 		}
 	}
