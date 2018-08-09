@@ -1,41 +1,37 @@
 <template>
 	<div class="index-view">
+		<Alert banner>使用<a href="">Chart.js</a>的图表组件。</Alert>
 		<Row :gutter="30">
-			<Col span="12">
-				<Card>
+			<template v-for="(data, n) in datas">
+				<Col span="12" :key="n">
+				<Card :key="n" :style="{marginBottom: '30px'}">
 					<p slot="title">
-						<Icon type="stats-bars"></Icon>
-						Bar Chart
+						<Icon :type="data.icon"></Icon>
+						{{data.title}}
 					</p>
 					<a href="http://www.chartjs.org/" slot="extra" target="_blank">
 						<Icon type="document-text"></Icon>
 						doc
 					</a>
 					<div class="chart-body">
-						<canvas id="myChart" style="width:100%;height:100%"></canvas>
+						<chart :type="data.type" :data="dataList" :options="options" :chart-ref="'chart_'+n"></chart>
 					</div>
 				</Card>
 			</Col>
-		</Row>
-	</div>
+		</template>
+	</Row>
+</div>
 </template>
 <script>
-const Chart = require('chart.js')
+import chart from './../../components/commons/charts/index.vue'
 export default{
+	components: {
+		chart
+	},
 	data () {
 		return {
-
-		}
-	},
-	methods: {
-
-	},
-	mounted () {
-		var ctx = document.getElementById("myChart")
-		var myChart = new Chart(ctx, {
-			type: 'bar',
-			data: {
-				labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+			dataList: {
+				labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
 				datasets: [{
 					label: '# of Votes',
 					data: [102, 19, 3, 5, 2, 3],
@@ -62,17 +58,27 @@ export default{
 				scales: {
 					yAxes: [{
 						ticks: {
-							beginAtZero:true
+							beginAtZero: true
 						}
 					}]
 				}
-			}
-		})
+			},
+			datas: [
+			{ title: 'Bar Chart', type: 'bar', icon: 'stats-bars' },
+			{ title: 'Line Chart', type: 'line', icon: 'steam' },
+			{ title: 'Pie Chart', type: 'pie', icon: 'pie-graph' }
+			]
+		}
+	},
+	methods: {
+
+	},
+	mounted () {
 	}
 }
 </script>
 <style>
-	.chart-body{
-		height: 320px;
-	}
+.chart-body{
+	height: 320px;
+}
 </style>

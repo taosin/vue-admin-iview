@@ -54,7 +54,7 @@ export default {
 			url: '10',
 			icon: 'stats-bars',
 			children: [
-			{ title: '折线图', url: '/charts', icon: 'document-text' },
+			{ title: 'Chart.js', url: '/charts', icon: 'document-text' },
 			{ title: '饼图', url: '2', icon: 'document-text' }
 			] },
 			{ title: '组件',
