@@ -1,7 +1,7 @@
 <template>
 	<div class="layout">
 		<div class="user-info">
-			<Badge count="3" class="badge">
+			<Badge :count="3" class="badge">
 				<Icon type="ios-bell-outline" size="30" color="#fff"></Icon>
 			</Badge>
 			<Avatar src="http://blog.gdfengshuo.com/example/work/static/img/img.jpg" class="avatar" size="large"/>

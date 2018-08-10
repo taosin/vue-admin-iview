@@ -2,7 +2,7 @@
 * @Author: iMocco
 * @Date:   2018-08-01 11:12:14
 * @Last Modified by:   iMocco
-* @Last Modified time: 2018-08-06 15:16:38
+* @Last Modified time: 2018-08-10 16:57:23
 */
 
 const routes = [
@@ -53,6 +53,10 @@ const routes = [
 		path: '/colors',
 		component: resolve => require(['@/views/color/index.vue'], resolve),
 		meta: { title: 'Color' }
+	}, {
+		path: '/split',
+		component: resolve => require(['@/views/splitpanel/index.vue'], resolve),
+		meta: { title: 'Split' }
 	}
 	]
 }, {
