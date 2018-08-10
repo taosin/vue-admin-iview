@@ -61,6 +61,7 @@ export default {
 			url: '7',
 			icon: 'share',
 			children: [
+			{ title: '窗口分割', url: '/split', icon: 'document-text' },
 			{ title: '富文本编辑器', url: '2', icon: 'document-text' },
 			{ title: 'markdown', url: '3', icon: 'document-text' },
 			{ title: '文件上传', url: '4', icon: 'document-text' }

@@ -40,14 +40,14 @@ export default{
 			const self = this
 			let cavans = self.$refs[self.chartRef]
 			let ctx = cavans.getContext('2d')
-			var chart = new Chart(ctx, {
+			new Chart(ctx, {
 				type: self.type,
 				data: self.data,
 				options: self.options
 			})
 		}
 	},
-	mounted(){
+	mounted () {
 		this.init()
 	}
 }
