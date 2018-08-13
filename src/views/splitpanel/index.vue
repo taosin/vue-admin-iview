@@ -61,6 +61,6 @@ export default{
 	background: sandybrown;
 }
 &.bottom-pane{
-	background: palevioletred;
+	background: orange;
 }
 </style>

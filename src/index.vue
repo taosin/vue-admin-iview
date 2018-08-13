@@ -46,25 +46,25 @@ export default {
 			{ title: '系统首页', url: '/', icon: 'ios-home' },
 			{ title: '色彩', url: '/colors', icon: 'ios-pricetag' },
 			{ title: 'Tabs', url: '/tabs', icon: 'ios-pricetag' },
-			{ title: '表格', url: '/tables', icon: 'ios-list' },
-			{ title: '上传', url: '/upload', icon: 'upload' },
-			{ title: '按钮', url: '/button', icon: 'social-youtube' },
-			{ title: '表单', url: '/forms', icon: 'social-youtube' },
+			{ title: '表格', url: '/tables', icon: 'ios-grid' },
+			{ title: '上传', url: '/upload', icon: 'md-cloud-upload' },
+			{ title: '按钮', url: '/button', icon: 'logo-youtube' },
+			{ title: '表单', url: '/forms', icon: 'ios-list-box' },
 			{ title: '图表',
 			url: '10',
-			icon: 'stats-bars',
+			icon: 'ios-aperture',
 			children: [
-			{ title: 'Chart.js', url: '/charts', icon: 'document-text' },
+			{ title: 'Chart.js', url: '/charts', icon: 'ios-aperture' },
 			{ title: '饼图', url: '2', icon: 'document-text' }
 			] },
 			{ title: '组件',
 			url: '7',
-			icon: 'share',
+			icon: 'ios-hammer',
 			children: [
-			{ title: '窗口分割', url: '/split', icon: 'document-text' },
-			{ title: '富文本编辑器', url: '2', icon: 'document-text' },
-			{ title: 'markdown', url: '3', icon: 'document-text' },
-			{ title: '文件上传', url: '4', icon: 'document-text' }
+			{ title: '窗口分割', url: '/split', icon: 'ios-square' },
+			{ title: '富文本编辑器', url: '2', icon: 'logo-markdown' },
+			{ title: 'markdown', url: '3', icon: 'logo-markdown' },
+			{ title: '文件上传', url: '4', icon: 'ios-document' }
 			] }
 			],
 			isCollapsed: false,
