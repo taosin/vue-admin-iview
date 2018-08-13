@@ -4,15 +4,15 @@
 			<Split v-model="split3">
 				<div slot="left" class="demo-split-pane no-padding">
 					<Split v-model="split4" mode="vertical">
-						<div slot="top" class="demo-split-pane">
+						<div slot="top" >
 							Top Pane
 						</div>
-						<div slot="bottom" class="demo-split-pane bottom-panel">
+						<div slot="bottom">
 							Bottom Pane
 						</div>
 					</Split>
 				</div>
-				<div slot="right" class="demo-split-pane" style="background:#8addcd">
+				<div slot="right">
 					Right Pane
 				</div>
 			</Split>
@@ -51,20 +51,16 @@ export default{
 .bottom-panel{
 	background:#fcdf7f
 }
-.pane{
-    width: 100%;
-    height: 100%;
-    &.left-pane{
-      background: sandybrown;
-    }
-    &.right-pane{
-      background: palevioletred;
-    }
-    &.top-pane{
-      background: sandybrown;
-    }
-    &.bottom-pane{
-      background: palevioletred;
-    }
-  }
+&.left-pane{
+	background: sandybrown;
+}
+&.right-pane{
+	background: palevioletred;
+}
+&.top-pane{
+	background: sandybrown;
+}
+&.bottom-pane{
+	background: palevioletred;
+}
 </style>
