@@ -4,16 +4,16 @@
 			<template v-for="(m, index) in menus">
 				<MenuItem :name="m.url" :key="index" v-if="!m.children">
 					<Icon :type="m.icon" :key="index"></Icon>
-					{{m.title}}
+					<span>{{m.title}}</span>
 				</MenuItem>
 				<Submenu v-if="m.children && m.children.length > 1" :key="index" :name="m.url">
 					<template slot="title">
 						<Icon :type="m.icon" :key="index"></Icon>
-						{{m.title}}
+						<span>{{m.title}}</span>
 					</template>
 					<template v-for="(ch,i) in m.children">
 						<MenuItem :name="ch.url" :key="i">
-							{{ch.title}}
+							<span>{{ch.title}}</span>
 						</MenuItem>
 					</template>
 				</Submenu>
@@ -38,6 +38,10 @@ export default{
 		className: {
 			type: Array,
 			default: []
+		},
+		collapsed: {
+			type: Boolean,
+			default: false
 		}
 	},
 	data () {
@@ -49,6 +53,10 @@ export default{
 	methods: {
 		handleSelect (name) {
 			this.$emit('on-select', name)
+		}
+	},
+	watch: {
+		className (val) {
 		}
 	}
 }

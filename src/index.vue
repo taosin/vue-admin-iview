@@ -5,17 +5,21 @@
 				<div class="layout-logo">
 					<!-- <div class="logo"></div> -->
 				</div>
-				<side-menu :menus="menus"  @on-select="handleSelect" :active-name="active" :class-name="menuitemClasses"></side-menu>
+				<side-menu :menus="menus"  @on-select="handleSelect" :active-name="active" :class-name="menuitemClasses" :collapsed="isCollapsed"></side-menu>
 			</Sider>
 			<Layout>
 				<Layout :style="{padding:'20px'}">
 					<Header :style="{background: '#fff',margin:'-20px',marginBottom:'10px',padding:'0'}">
-						<Icon @click.native="collapsedSider" :class="rotateIcon" :style="{margin: '0 20px'}" type="md-menu" size="24"></Icon>
-						<Breadcrumb :style="{margin: '4px 0'}">
-							<template v-for="(bread, index) in breads">
-								<BreadcrumbItem :key="index">{{bread.name}}</BreadcrumbItem>
-							</template>
-						</Breadcrumb>
+						<a class="rotate-a">
+							<Icon @click.native="collapsedSider" :class="rotateIcon" :style="{margin: '0 20px'}" type="md-menu" size="24"></Icon>
+						</a>
+						<div class="custom-bread-crumb">
+							<Breadcrumb class="breadcrumb">
+								<template v-for="(bread, index) in breads">
+									<BreadcrumbItem :key="index">{{bread}}</BreadcrumbItem>
+								</template>
+							</Breadcrumb>
+						</div>
 						<!-- <div class="layout-nav">
 							<top></top>
 						</div> -->
@@ -46,7 +50,7 @@ export default {
 			title: '欢迎回来',
 			menus: [
 			{ title: '系统首页', url: '/', icon: 'ios-home' },
-			{ title: '色彩', url: '/colors', icon: 'ios-pricetag' },
+			{ title: '色彩', url: '/colors', icon: 'ios-color-fill' },
 			{ title: 'Tabs', url: '/tabs', icon: 'ios-pricetag' },
 			{ title: '表格', url: '/tables', icon: 'ios-grid' },
 			{ title: '上传', url: '/upload', icon: 'md-cloud-upload' },
@@ -71,14 +75,15 @@ export default {
 			],
 			isCollapsed: false,
 			active: '/',
-			breads: [
-			{ name: '首页' },
-			{ name: 'Dashboard' }
-			]
+			breads: []
 		}
 	},
 	watch: {
 		'$route' (to, from) {
+			// this.breads = this.$route.matched
+		},
+		breads (val) {
+			console.log(val)
 		}
 	},
 	computed: {
@@ -97,6 +102,7 @@ export default {
 	},
 	mounted () {
 		this.active = this.$route.path
+		// this.breads = this.$route.matched
 	},
 	methods: {
 		handleSelect (name) {
@@ -105,6 +111,7 @@ export default {
 
 		gotoPage (path) {
 			this.$router.push(path)
+			debugger
 		},
 		collapsedSider () {
 			this.$refs.side.toggleCollapse()

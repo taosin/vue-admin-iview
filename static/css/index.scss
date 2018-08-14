@@ -2,7 +2,7 @@
 * @Author: iMocco
 * @Date:   2018-07-27 17:59:36
 * @Last Modified by:   iMocco
-* @Last Modified time: 2018-08-14 17:26:52
+* @Last Modified time: 2018-08-14 18:04:53
 */
 .index{
 	.tags{
@@ -92,5 +92,12 @@
 	transform: translateX(5px);
 	transition: font-size .2s ease .2s, transform .2s ease .2s;
 	vertical-align: middle;
-	font-size: 22px;
+	font-size: 20px;
+}
+.custom-bread-crumb{
+	margin-left: 10px;
+	float: left;
+}
+.rotate-a{
+	float: left;
 }
