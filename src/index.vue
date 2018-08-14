@@ -25,9 +25,11 @@
 						</div> -->
 					</Header>
 					<Content :style="{padding: '10px', minHeight: '280px', background: '#fff', height:'100%', overflow: 'auto'}">
-						<transition name="slide-fade">
-							<router-view/>
-						</transition>
+						<keep-alive>
+							<transition name="slide-fade">
+								<router-view/>
+							</transition>
+						</keep-alive>
 					</Content>
 				</Layout>
 			</Layout>
@@ -91,7 +93,7 @@ export default {
 			return [
 			'menu-icon',
 			this.isCollapsed ? 'rotate-icon' : ''
-			]
+			];
 		},
 		menuitemClasses () {
 			return [
@@ -102,7 +104,6 @@ export default {
 	},
 	mounted () {
 		this.active = this.$route.path
-		// this.breads = this.$route.matched
 	},
 	methods: {
 		handleSelect (name) {
@@ -111,7 +112,6 @@ export default {
 
 		gotoPage (path) {
 			this.$router.push(path)
-			debugger
 		},
 		collapsedSider () {
 			this.$refs.side.toggleCollapse()

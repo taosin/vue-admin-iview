@@ -4,16 +4,16 @@
 			<template v-for="(m, index) in menus">
 				<MenuItem :name="m.url" :key="index" v-if="!m.children">
 					<Icon :type="m.icon" :key="index"></Icon>
-					<span :key="index">{{m.title}}</span>
+					<span>{{m.title}}</span>
 				</MenuItem>
 				<Submenu v-if="m.children && m.children.length > 1" :key="index" :name="m.url">
 					<template slot="title">
 						<Icon :type="m.icon" :key="index"></Icon>
-						<span :key="index">{{m.title}}</span>
+						<span>{{m.title}}</span>
 					</template>
 					<template v-for="(ch,i) in m.children">
 						<MenuItem :name="ch.url" :key="i">
-							<span :key="i">{{ch.title}}</span>
+							<span>{{ch.title}}</span>
 						</MenuItem>
 					</template>
 				</Submenu>

@@ -7,7 +7,7 @@
 				<Col span="6">
 				<div class="box eye">
 					<div class="left">
-						<Icon type="eye" size="64"></Icon>
+						<Icon type="ios-eye" size="64"></Icon>
 					</div>
 					<div class="right">
 						<h2>123334</h2>
@@ -18,7 +18,7 @@
 			<Col span="6">
 			<div class="box message">
 				<div class="left">
-					<Icon type="chatbubble-working" size="64"></Icon>
+					<Icon type="ios-chatbubbles" size="64"></Icon>
 				</div>
 				<div class="right">
 					<h2>123334</h2>
@@ -29,7 +29,7 @@
 		<Col span="6">
 		<div class="box order">
 			<div class="left">
-				<Icon type="bag" size="64"></Icon>
+				<Icon type="ios-lock" size="64"></Icon>
 			</div>
 			<div class="right">
 				<h2>123334</h2>
@@ -40,7 +40,7 @@
 	<Col span="6">
 	<div class="box cash">
 		<div class="left">
-			<Icon type="social-yen" size="64"></Icon>
+			<Icon type="logo-yen" size="64"></Icon>
 		</div>
 		<div class="right">
 			<h2>123334</h2>
