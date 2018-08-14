@@ -1,15 +1,16 @@
 <template>
 	<div class="index">
 		<Layout :style="{height: '100%'}">
-			<Sider hide-trigger :style="{background: '#515a6e'}">
+			<Sider ref="side" hide-trigger :style="{background: '#515a6e'}" collapsible :collapsed-width="78" v-model="isCollapsed">
 				<div class="layout-logo">
-					<div class="logo"></div>
+					<!-- <div class="logo"></div> -->
 				</div>
-				<side-menu :menus="menus"  @on-select="handleSelect" :active-name="active"></side-menu>
+				<side-menu :menus="menus"  @on-select="handleSelect" :active-name="active" :class-name="menuitemClasses"></side-menu>
 			</Sider>
 			<Layout>
 				<Layout :style="{padding:'20px'}">
-					<Header :style="{background: '#fff',margin:'-20px',marginBottom:'10px'}">
+					<Header :style="{background: '#fff',margin:'-20px',marginBottom:'10px',padding:'0'}">
+						<Icon @click.native="collapsedSider" :class="rotateIcon" :style="{margin: '0 20px'}" type="md-menu" size="24"></Icon>
 						<Breadcrumb :style="{margin: '4px 0'}">
 							<template v-for="(bread, index) in breads">
 								<BreadcrumbItem :key="index">{{bread.name}}</BreadcrumbItem>
@@ -81,6 +82,18 @@ export default {
 		}
 	},
 	computed: {
+		rotateIcon () {
+			return [
+			'menu-icon',
+			this.isCollapsed ? 'rotate-icon' : ''
+			];
+		},
+		menuitemClasses () {
+			return [
+			'menu-item',
+			this.isCollapsed ? 'collapsed-menu' : ''
+			]
+		}
 	},
 	mounted () {
 		this.active = this.$route.path
@@ -92,6 +105,9 @@ export default {
 
 		gotoPage (path) {
 			this.$router.push(path)
+		},
+		collapsedSider () {
+			this.$refs.side.toggleCollapse()
 		}
 	}
 }

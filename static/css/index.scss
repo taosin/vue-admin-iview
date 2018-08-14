@@ -2,7 +2,7 @@
 * @Author: iMocco
 * @Date:   2018-07-27 17:59:36
 * @Last Modified by:   iMocco
-* @Last Modified time: 2018-08-14 16:24:33
+* @Last Modified time: 2018-08-14 17:26:52
 */
 .index{
 	.tags{
@@ -62,4 +62,35 @@
 	width: 400px;
 	text-align: right;
 	height: 100%;
+}
+.menu-icon{
+	transition: all .3s;
+}
+.rotate-icon{
+	transform: rotate(-90deg);
+}
+.menu-item span{
+	display: inline-block;
+	overflow: hidden;
+	width: 69px;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	vertical-align: bottom;
+	transition: width .2s ease .2s;
+}
+.menu-item i{
+	transform: translateX(0px);
+	transition: font-size .2s ease, transform .2s ease;
+	vertical-align: middle;
+	font-size: 16px;
+}
+.collapsed-menu span{
+	width: 0px;
+	transition: width .2s ease;
+}
+.collapsed-menu i{
+	transform: translateX(5px);
+	transition: font-size .2s ease .2s, transform .2s ease .2s;
+	vertical-align: middle;
+	font-size: 22px;
 }

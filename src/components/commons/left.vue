@@ -1,6 +1,6 @@
 <template>
 	<div class="layout">
-		<Menu theme="dark" width="auto" name="1" :active-name="activeName" @on-select="handleSelect">
+		<Menu theme="dark" width="auto" name="1" :active-name="activeName" @on-select="handleSelect" :class="className">
 			<template v-for="(m, index) in menus">
 				<MenuItem :name="m.url" :key="index" v-if="!m.children">
 					<Icon :type="m.icon" :key="index"></Icon>
@@ -34,6 +34,10 @@ export default{
 		activeName: {
 			type: String,
 			default: '/'
+		},
+		className: {
+			type: Array,
+			default: []
 		}
 	},
 	data () {
