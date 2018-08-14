@@ -1,8 +1,8 @@
 <template>
 	<div class="layout">
 		<div class="user-info">
-			<Badge :count="3" class="badge">
-				<Icon type="ios-bell-outline" size="30" color="#fff"></Icon>
+			<Badge class="badge">
+				<Icon type="ios-notifications-outline" size="26"></Icon>
 			</Badge>
 			<Avatar src="http://blog.gdfengshuo.com/example/work/static/img/img.jpg" class="avatar" size="large"/>
 			<Dropdown class="name">
@@ -39,12 +39,13 @@ export default{
 	width:100%;
 	display: flex;
 	flex: 1;
-
-	.badge{
-		margin-top: 10px;
-	}
-	.avatar{
-		margin: 0 20px;
+	.user-info{
+		width:100%;
+		.badge{
+		}
+		.avatar{
+			margin: 0 20px;
+		}
 	}
 }
 </style>

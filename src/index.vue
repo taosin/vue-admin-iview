@@ -1,23 +1,24 @@
 <template>
 	<div class="index">
 		<Layout :style="{height: '100%'}">
-			<Header>
+			<Sider hide-trigger :style="{background: '#515a6e'}">
 				<div class="layout-logo">
+					<div class="logo"></div>
 				</div>
-				<div class="layout-nav">
-					<top></top>
-				</div>
-			</Header>
+				<side-menu :menus="menus"  @on-select="handleSelect" :active-name="active"></side-menu>
+			</Sider>
 			<Layout>
-				<Sider hide-trigger :style="{background: '#4a505e'}">
-					<side-menu :menus="menus"  @on-select="handleSelect" :active-name="active"></side-menu>
-				</Sider>
-				<Layout :style="{padding: '0 14px 24px'}">
-					<Breadcrumb :style="{margin: '14px 0'}">
-						<template v-for="(bread, index) in breads">
-							<BreadcrumbItem :key="index">{{bread.name}}</BreadcrumbItem>
-						</template>
-					</Breadcrumb>
+				<Layout :style="{padding:'20px'}">
+					<Header :style="{background: '#fff',margin:'-20px',marginBottom:'10px'}">
+						<Breadcrumb :style="{margin: '4px 0'}">
+							<template v-for="(bread, index) in breads">
+								<BreadcrumbItem :key="index">{{bread.name}}</BreadcrumbItem>
+							</template>
+						</Breadcrumb>
+						<!-- <div class="layout-nav">
+							<top></top>
+						</div> -->
+					</Header>
 					<Content :style="{padding: '10px', minHeight: '280px', background: '#fff', height:'100%', overflow: 'auto'}">
 						<transition name="slide-fade">
 							<router-view/>
