@@ -25,11 +25,9 @@
 						</div> -->
 					</Header>
 					<Content :style="{padding: '10px', minHeight: '280px', background: '#fff', height:'100%', overflow: 'auto'}">
-						<keep-alive>
-							<transition name="slide-fade">
-								<router-view/>
-							</transition>
-						</keep-alive>
+						<transition name="slide-fade">
+							<router-view/>
+						</transition>
 					</Content>
 				</Layout>
 			</Layout>

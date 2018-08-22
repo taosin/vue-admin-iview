@@ -34,6 +34,7 @@ export default{
 	width: 100%;
 	height: 100%;
 	border: 1px solid;
+	background:red;
 }
 .demo-split{
 	height: 200px;

@@ -2,9 +2,11 @@
 * @Author: iMocco
 * @Date:   2018-07-27 17:59:36
 * @Last Modified by:   iMocco
-* @Last Modified time: 2018-08-14 18:04:53
+* @Last Modified time: 2018-08-14 18:39:19
 */
 .index{
+	width: 100%;
+	height: 100%;
 	.tags{
 		padding: 10px;
 		background: #fff;
@@ -37,6 +39,7 @@
 		padding: 10px;
 		width: 100%;
 		height: 100%;
+		background: red;
 	}
 }
 .index{

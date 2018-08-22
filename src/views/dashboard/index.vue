@@ -29,7 +29,7 @@
 		<Col span="6">
 		<div class="box order">
 			<div class="left">
-				<Icon type="ios-lock" size="64"></Icon>
+				<Icon type="ios-paper" size="64"></Icon>
 			</div>
 			<div class="right">
 				<h2>123334</h2>
