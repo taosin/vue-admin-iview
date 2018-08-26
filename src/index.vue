@@ -91,7 +91,7 @@ export default {
 			return [
 			'menu-icon',
 			this.isCollapsed ? 'rotate-icon' : ''
-			];
+			]
 		},
 		menuitemClasses () {
 			return [
