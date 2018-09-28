@@ -1,22 +1,20 @@
 <template>
-	<div class="index-view">
-		<div class="split-panel">
-			<Split v-model="split3">
-				<div slot="left" class="demo-split-pane no-padding">
-					<Split v-model="split4" mode="vertical">
-						<div slot="top" >
-							Top Pane
-						</div>
-						<div slot="bottom">
-							Bottom Pane
-						</div>
-					</Split>
-				</div>
-				<div slot="right">
-					Right Pane
-				</div>
-			</Split>
-		</div>
+	<div class="index-view split-panel">
+		<Split v-model="split3" style="height:100%">
+			<div slot="left" class="demo-split-pane no-padding">
+				<Split v-model="split4" mode="vertical" class="left-pane">
+					<div slot="top" class="top-pane">
+						Top Pane
+					</div>
+					<div slot="bottom" class="bottom-pane">
+						Bottom Pane
+					</div>
+				</Split>
+			</div>
+			<div slot="right" class="right-pane">
+				Right Pane
+			</div>
+		</Split>
 	</div>
 </template>
 <script>
@@ -31,23 +29,14 @@ export default{
 </script>
 <style lang="less">
 .split-panel{
-	width: 100%;
-	height: 100%;
 	border: 1px solid;
 	background:red;
-}
-.demo-split{
-	height: 200px;
-	border: 1px solid #dcdee2;
-}
-.demo-split-pane{
-	padding: 10px;
+	min-height:600px;
 }
 .demo-split-pane.no-padding{
-	height: 200px;
+	height: 580px;
 	padding: 0;
 	width: 100%;
-	height: 100%;
 }
 .bottom-panel{
 	background:#fcdf7f
