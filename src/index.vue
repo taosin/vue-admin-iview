@@ -71,7 +71,7 @@ export default {
 			{ title: '富文本编辑器', url: '2', icon: 'logo-markdown' },
 			{ title: 'markdown', url: '3', icon: 'logo-markdown' },
 			{ title: '文件上传', url: '4', icon: 'ios-document' },
-			{ title: '图标', url: '/icons', icon: 'ios-document' },
+			{ title: '图标', url: '/icons', icon: 'ios-document' }
 			] }
 			],
 			isCollapsed: false,
